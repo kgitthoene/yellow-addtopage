@@ -80,7 +80,7 @@ The types `CSS` and `STYLE` are synonymous. Also the types `JS` and `JAVASCRIPT`
 Add to your page content (markup): **`[addtopage JS js/darkmode/darkmode.js footer]`**
 
 ```
-├── media
+└── media
     └── downloads
         └── js
             └── darkmode
