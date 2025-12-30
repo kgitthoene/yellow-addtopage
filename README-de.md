@@ -80,7 +80,7 @@ Die Typen `CSS` und `STYLE` sind synonym. Ebenso die Typen `JS` und `JAVASCRIPT`
 Füge den Shortcode auf einer Seite ein: **`[addtopage JS js/darkmode/darkmode.js footer]`**
 
 ```
-├── media
+└── media
     └── downloads
         └── js
             └── darkmode
