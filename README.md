@@ -4,7 +4,7 @@
 
 Add CSS, JavaScript files or meta data to [Yellow](https://datenstrom.se/yellow/) web pages.
 
-<p align="center"><img src="SCREENSHOT.png" alt="Screenshot"></p>
+<p align="center"><img src="addtopage-machine.png" alt="Yellow-Addtopage"></p>
 
 ## How to install an extension
 

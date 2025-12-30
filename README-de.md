@@ -4,7 +4,7 @@
 
 Füge CSS- oder JavaScript-Dateien oder Metadaten in [Yellow](https://datenstrom.se/yellow/)-Webseiten ein.
 
-<p align="center"><img src="SCREENSHOT.png" alt="Screenshot"></p>
+<p align="center"><img src="addtopage-machine.png" alt="Yellow-Addtopage"></p>	
 
 ## Wie installiere ich die Erweiterung?
 
