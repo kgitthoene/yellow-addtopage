@@ -27,7 +27,7 @@
 # SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #----------
 class YellowAddToPage {
-  const VERSION = "0.3.9";
+  const VERSION = "0.4.0";
   public $yellow;            //access to API
   public $debug = true;
   public $a_file = array();
@@ -66,6 +66,10 @@ class YellowAddToPage {
     }
   }
 
+  private function __is_readable_file($fn) {
+    return file_exists($fn) && is_readable($fn) && is_file($fn);
+  }
+
   private function __get_file($fn, &$url) {
     $serverBase = $this->yellow->system->get("coreServerBase");
     $cwd = getcwd();
@@ -76,7 +80,7 @@ class YellowAddToPage {
     foreach ($a_locations as $loc) {
       $filename = $this->__join(array($loc, $fn));
       $url = substr($filename, strlen($cwd));
-      if (file_exists($filename) && is_readable($filename) && is_file($filename)) {
+      if ($this->__is_readable_file($filename)) {
         return $filename;
       }
     }
@@ -96,6 +100,32 @@ class YellowAddToPage {
     $bn = "{$theme}.{$this->token}";
     $fn = $this->__join(array($theme_path, $bn));
     return $fn;
+  }
+
+  private function __get_update_installed() {
+    $data = [];
+    $serverBase = $this->yellow->system->get("coreServerBase");
+    $cwd = getcwd();
+    $fn = $this->__join(array($cwd, $serverBase, 'system', 'extensions', $this->yellow->system->get("UpdateInstalledFile")));
+    $extn = null;
+    if ($this->__is_readable_file($fn)) {
+      $lines = file($fn, FILE_SKIP_EMPTY_LINES);
+      foreach ($lines as $line) {
+        if (preg_match('/^([^\s]+\s*):(.*)$/', trim($line), $matches)) {
+          $key = trim($matches[1]);
+          $value = trim($matches[2]);
+          if (strtolower($key) == 'extension') {
+            # New extension information starts
+            $extn = $value;
+            $data[$extn] = [];
+            $data[$extn][$key] = $value;
+          } elseif (!is_null($extn)) {
+            $data[$extn][$key] = $value;
+          }
+        }
+      }
+    }
+    return $data;
   }
 
   private function __insert_file_or_meta_data($page, $b_inline, $b_debug, $type, $file_location, $file_url) {
@@ -145,6 +175,26 @@ class YellowAddToPage {
         $comment = ($b_debug ? "/*\n * Access this settings by (example):\n *   const System = globalThis[Symbol.for('Yellow-System')];\n *   console.log(\"SITENAME=\" + System.sitename);\n */\n" : '');
         $json = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
         $output .= "<script type=\"text/javascript\">\n{$comment}globalThis[Symbol[\"for\"]('Yellow-System')] = {$json};\n</script>\n";
+        break;
+      case "EXTENSIONS":
+        $data = [];
+        $ext_data = $this->__get_update_installed();
+        foreach ($this->yellow->extension->data as $key => $value) {
+          $extvalue = [];
+          foreach ($ext_data as $ekey => $evalue) {
+            if(strtolower($key) == strtolower($ekey)) {
+              $extvalue = $evalue;
+              break;
+            }
+          }
+          $data[$key] = ["class" => get_class($this->yellow->extension->get($key))];
+          if(!!$extvalue) {
+            $data[$key]['update-installed'] = $extvalue;
+          }
+        }
+        $comment = ($b_debug ? "/*\n * Access this settings by (example):\n *   const System = globalThis[Symbol.for('Yellow-Extensions')];\n *   console.log(\"SITENAME=\" + \"System.sitename\");\n */\n" : '');
+        $json = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_FORCE_OBJECT);
+        $output .= "<script type=\"text/javascript\">\n{$comment}globalThis[Symbol[\"for\"]('Yellow-Extensions')] = {$json};\n</script>\n";
         break;
     }
     return $output;
@@ -227,9 +277,13 @@ class YellowAddToPage {
         case "SYSTEM":
           $type = "SYSTEM";
           break;
+        case "EXTENSIONS-JSON":
+        case "EXTENSIONS":
+          $type = "EXTENSIONS";
+          break;
         default:
           $type_has_error = true;
-          $msg = "ERROR -- Invalid or no type! Use: JS or CSS!";
+          $msg = "ERROR -- Invalid or no type! Use: SYSTEM, PAGE, EXTENSIONS, JS or CSS!";
           if ($is_in_page_meta_data) {
             array_push($this->a_header_errors, $this->__format_page_header_errmsg($origin, $original_key, $partial, $msg));
           } else {
@@ -295,6 +349,7 @@ class YellowAddToPage {
           break;
         case "PAGE":
         case "SYSTEM":
+        case "EXTENSIONS":
           # Handle inserting page / system data.
           array_push($this->a_file, array("TYPE" => $type, "FILE" => $file, "DEBUG" => $b_debug, "INLINE" => true, "FOOTER" => $b_footer, "ORIGIN" => $origin, "PRINTED" => false));
           break;
@@ -336,7 +391,7 @@ class YellowAddToPage {
       $cwd = getcwd();
       $urlfn = $this->__get_theme_file();
       $fn = $this->__join(array($cwd, $urlfn));
-      if (file_exists($fn) && is_readable($fn) && is_file($fn)) {
+      if ($this->__is_readable_file($fn)) {
         $lines = file($fn, FILE_SKIP_EMPTY_LINES);
         foreach ($lines as $line) {
           $this->__parse_text_and_array_push('THEME', true, $line, $this->a_file, $this->a_header_errors);
@@ -381,7 +436,7 @@ class YellowAddToPage {
         if ((!is_null($file)) and (!is_null($type))
           and (!$b_printed)
           and ((($name == "header") and (!$b_footer))
-            or (($name == "footer") and ($b_footer)))) {
+          or (($name == "footer") and ($b_footer)))) {
           #
           # Mark as printed.
           $item['PRINTED'] = true;

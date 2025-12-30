@@ -10,234 +10,146 @@ Add CSS, JavaScript files or meta data to [Yellow](https://datenstrom.se/yellow/
 
 [Download ZIP file](https://github.com/kgitthoene/yellow-addtopage/archive/refs/heads/main.zip) and copy it file into your `system/extensions` folder. [Learn more about extensions](https://datenstrom.se/yellow/extensions/).
 
-## Overall Example
-
-Inject files or meta data to your pages. Place the file `<theme>.addtopage`  in the themes directory.
-
-Say your theme is `stockholm`, then place the file **`stockholm.addtopage`** in the themes directory `system/themes`
-
-Place additional JavaScript and/or CSS files into the downloads folder `media/downloads`
-
-Example folder / file structure:
+Sample installation instructions:
 
 ```
-├── media
-|   └── downloads
-|       └── js
-|           └── darkmode
-|               └── darkmode.js    = file to inject into all pages
-└── system
-    └── themes
-        └── stockholm.addtopage    = contains Addtopage instructions
+$ cd system/extensions
+$ wget https://github.com/kgitthoene/yellow-addtopage/archive/refs/heads/main.zip -O yellow-addtopage-main.zip
 ```
 
-Content of `stockholm.addtopage` is:
+## Why this extension?
 
-```
-PAGE - footer
-JS js/darkmode/darkmode.js
-```
+[Yellows](https://datenstrom.se/yellow/) slogan is: „Use technology with fewer features.“
+This is great – and I love it.
+But what, if you want to add a touch salt and pepper, to get it a little bit spicier? This is called Yellow extensions … 🍎
 
-This places the page meta data (JavaScript code) and the file  `js/darkmode/darkmode.js` inside all of your Yellow pages.
+The Yellow way to add [JavaScript](https://en.wikipedia.org/wiki/JavaScript) to its pages is to create a `<theme>.js` file inside the themes directory `system/themes`
+See: [Customising JavaScript](https://datenstrom.se/yellow/help/how-to-customise-a-theme#customising-javascript)
 
-For details see the next sections.
+So far, so good. Until you don't want this script on all pages. Or you have multiple scripts with dedicated, meaningful, names. The same applies to CSS files.
 
-## How to add CSS, JavaScript files to your web page(s)
+This extension allows JS and CSS files to be specifically loaded into specific pages.
+Or just in all of them.
+They retain their original names or embed directly into the HTML output.
 
-There are three ways to add files to your web pages.
+In addition, page and system information from Yellow can be integrated into the HTML output as JavaScript data structures in order to use it in scripts.
+That's the way to let JS look under Yellows hood!
 
-Method **(1)** and **(2)** affects one single page. Method **(3)** affects all pages.
+## Inject stuff to web pages
 
-### (1) Create a `[addtopage]` shortcut
-
-For CSS and JavaScript the following arguments are available, but the last argument ist optional:
-
-`[addtopage Type File Options]`
-
-`Type` = File type: `CSS`, `STYLE`, `JAVASCRIPT` or `JS`
-
-`File` = File to import: File name or file path with or without leading `/`
-
-`Options` = Multiple, single or none option key words: `footer`, `inline`, `debug`  (separated by `:`    e.g.   `footer:inline`  )
-
-The files are placed in `media/downloads`
-
-Unless you change `CoreDownloadLocation` in the main configuration file `system/extensions/yellow-system.ini`
-
-See: [Yellow Folder Structure](https://datenstrom.se/yellow/help/api-for-developers#folder-structure)
+First thing you've to know is the [Yellow Folder Structure](https://datenstrom.se/yellow/help/api-for-developers#folder-structure).
+Here you see the part that is important to us.
 
 ```
 ├── content               = content files
 ├── media                 = media files
-│   └── downloads         = files for download / injecting
-└── system                = system files
-```
-
-The types `CSS` and `STYLE` are synonymous. Also the types `JS` and `JAVASCRIPT`.
-
-#### Example for (1)
-
-Add to your page content (markup): **`[addtopage JS js/darkmode/darkmode.js footer]`**
-
-```
-└── media
-    └── downloads
-        └── js
-            └── darkmode
-                └── darkmode.js    = file to insert into page
-```
-
-The file will be inserted in the footer of the page (resulting HTML code). Example:
-
-```
-...
-<script type="text/javascript" src="/media/downloads/js/darkmode/darkmode.js"></script>
-</body>
-</html>
-```
-
-If you omit the `footer` option, the file will be added to the page header. Example:
-
-```
-...
-<meta name="generator" content="Datenstrom Yellow" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<script type="text/javascript" src="/media/downloads/js/darkmode/darkmode.js"></script>
-...
-```
-
-### (2) Add Addtopage to the page settings
-
-See: [How to change the system / Chapter: Page Settings](https://datenstrom.se/yellow/help/how-to-change-the-system#page-settings)
-
-For CSS and JavaScript the following arguments are available, but the last argument is optional:
-
-Add to page setting: `Addtopage: Type File Options`
-
-#### Example for (2)
-
-```
----
-Title: Example page
-Addtopage: JS js/darkmode/darkmode.js footer
----
-
-This is an example page setting with file injection.
-```
-
-##### If you want to add multiple files to the page settings, separate them by `|`
-
-Example:
-
-```
----
-Title: Example page
-Addtopage: CSS css/injected-style.css | JS js/darkmode/darkmode.js footer
----
-
-This is an example page setting with multiple file or meta data injection.
-```
-
-Folder structure for this example:
-
-```
-└── media
-    └── downloads
-        ├── css
-        │   └── injected-style.css    = 1st file to inject into page
-        └── js
-            └── darkmode
-                └── darkmode.js       = 2nd file to inject into page
-```
-
-### (3) All pages: Inject CSS and JavaScript
-
-Place a file `<theme>.addtopage`  in the themes directory:
-
-Say your theme is `stockholm`, then place a file **`stockholm.addtopage`** in the themes directory:
-
-```
-└── system                        = system files
-    └── themes                    = theme files
-        └── stockholm.addtopage   = contains Addtopage instructions
-```
-
-If `stockholm.addtopage` is:
-
-```
-CSS css/injected-style.css
-JS js/darkmode/darkmode.js footer
-```
-
-Then the files `css/injected-style.css` and `js/darkmode/darkmode.js` are injected to all pages.
-
-Folder structure for this example:
-
-```├── media
-├── media
 │   └── downloads
-│       ├── css
-│       │   └── injected-style.css    = 1st file to inject to page
-│       └── js
-│           └── darkmode
-│               └── darkmode.js       = 2nd file to inject to page
-└── system
+└── system                = system files
+    ├── extensions
     └── themes
-        └── stockholm.addtopage   	  = contains Addtopage instructions
 ```
 
-## How to add meta data to your web page(s)
+In `media/downloads` (and of course subdirectories) we'll place all JS and CSS files, we want to load to pages.
+Unless you change `CoreDownloadLocation` in the main configuration file `system/extensions/yellow-system.ini`\
+Yellows default value for `CoreDownloadLocation` is `/media/downloads`
 
-If you want to look Yellow under the hood by JavaScript, you may add some meta data as JavaScript code to your web pages.
+If you only want to add something to one page, add instructions directly to the page or in the [page settings](https://datenstrom.se/yellow/help/how-to-change-the-system#page-settings).
 
-There are three ways to add meta data to your web pages. You use the same anchors to place the instructions to inject meta data like style or script files.
+If you want to add something everywhere, add a theme specific file with instructions to the theme directory.
+It's named `system/themes/<theme>.addtopage`, where `<theme>` is the name of the configured theme.\
+In Yellows default configuration the theme is `stockholm`, so `<theme>` is `stockholm` and the instructions file is: `system/themes/stockholm.addtopage`
 
-Method **(1)** and **(2)** affects a single page. Method **(3)** affects all pages.
+### Instructions to inject stuff
 
-#### **(1)** Shortcode: `[addtopage Type Dummy Options]` 
+Each instruction has three parts, which are separated by space.
+Sorry for this, therefore you can't have directories or files with spaces in their names.
 
-`Type` = Meta data type: `PAGE`, `SYSTEM`
+**`Type` `File` `Options`**
 
-`Dummy` = Dummy argument: `-`    Must use this, if you set options. No options, no dummy needed.
+<br/>
 
-`Options` = Multiple, single or none option key words: `footer`, `debug`  (separated by `:`    e.g.   `footer:debug`  )
+| `Type` | Meaning |
+| --- | --- |
+| `JS` | Inject a JavaScript file. |
+| `CSS` | Inject a CSS file. |
+| `PAGE` | Inject page meta data as JavaScript code. |
+| `SYSTEM` | Inject system meta data as JavaScript code. |
+| `EXTENSIONS` | Inject meta data about installed extensions as JavaScript code. |
 
-#### **(2)** Page settings:
+<br/>
+
+**`File`** – Name of a JS or CSS file inside `media/downloads`\
+If `File` is `my-mighty-script.js` it should be placed here: `media/downloads/my-mighty-script.js`
+
+For injection of meta data `File` is meaningless.
+Don't set it, or if you want to use `Options` set it to `-`
+
+<br/>
+
+| `Options` | Meaning |
+| --- | --- |
+| `footer` | Inject file or meta data in the footer of the HTML output. If you omit `footer`, the data is injected in the header of the HTML output. |
+| `inline` | This is used for meta data. If set with a file, the files content is read and embedded in the HTML output. For meta data you may omit this option. |
+| `debug` | Output some debug information as comments to the HTML output. |
+
+
+### Where to place these instructions?
+
+![#c5f015](https://placehold.co/15x10/c5f015/c5f015.png) **Page:** Add a shortcut with parameters inside the page content.
+
+**Example:** `[addtopage JS my-mighty-script.js footer]`
+
+This adds the script at the footer of the specific page.
+If you want to add multiple files or meta data, simply use multiple shortcuts.
+
+![#c5f015](https://placehold.co/16x10/c5f015/c5f015.png) **Page Settings:** Add one or multiple instructions in the [page settings](https://datenstrom.se/yellow/help/how-to-change-the-system#page-settings).
+The page setting are at the top of a markdown page.
+
+**Example:**
 
 ```
 ---
 Title: Example page
-Addtopage: Type Dummy Options
+Addtopage: JS my-mighty-script.js footer
 ---
 ```
 
-If you want to add multiple files or meta data to the page settings, separate them by `|` 
+Does the same as the shortcut inside the specific page.
+
+If you want to add multiple files or meta data to the page settings, separate them by `|`
 
 ```
 ---
 Title: Example page
-Addtopage: Type Dummy Options | Type Dummy Options
+Addtopage: CSS my-important-style.css | JS my-mighty-script.js footer
 ---
 ```
 
-#### **(3)** All pages: Add file `<theme>.addtopage`  in the themes directory
+This adds `my-important-style.css` to the page header and `my-mighty-script.js` to the page footer.
+
+![#c5f015](https://placehold.co/16x10/c5f015/c5f015.png) **Theme:** Add one or multiple instructions to the theme specific file `<theme>.addtopage` in `system/themes`
+
+**Example:**
+
+Content of `system/themes/stockholm.addtopage`, if your Theme is `stockholm`:
 
 ```
-Type Dummy Options
+CSS my-important-style.css
+JS my-mighty-script.js footer
 ```
 
-Say your theme is `stockholm`: place **`stockholm.addtopage`** in `system/themes`
+This adds my-important-style.css to the page header and my-mighty-script.js to the page footer **<ins>on ervery page Yellow renders!</ins>**
 
-Content of `stockholm.addtopage`:
+![#f03c15](https://placehold.co/16x10/f03c15/f03c15.png) **Remember!** Page and page settings instructions affect only a specific page. Theme instructions affect the whole site.
+
+### Use injected Meta Data
+
+If you add `[addtopage PAGE]` to your page, the current pages meta data is added to the page header.
+
+Resulting HTML code:
+
 
 ```
-PAGE - footer
-```
-
-Results in:
-
-```
-...
 <script type="text/javascript">
 globalThis[Symbol["for"]('Yellow-Page')] = {
     "title": "Digamma",
@@ -257,56 +169,20 @@ globalThis[Symbol["for"]('Yellow-Page')] = {
     "editpageurl": "http://localhost/edit/"
 };
 </script>
-</body>
-</html>
 ```
 
-Access this data in JavaScript:
+To access this data use the following JavaScript code:
 
 ```
 const Page = globalThis[Symbol.for('Yellow-Page')];
-console.log("PAGE=" + Page.title);
-```
-
-#### Example `Type` = `SYSTEM` in a shortcode
-
-```
-[addtopage SYSTEM - footer]
-```
-
-Results in:
-
-```
-...
-<script type="text/javascript">
-globalThis[Symbol["for"]('Yellow-System')] = {
-    "sitename": "Digamma",
-    "author": "Administrator",
-    "email": "nobody@administrator.unknown",
-    "language": "en",
-    "layout": "default",
-    "theme": "stockholm",
-    "parser": "markdown",
-    "status": "public",
-...
-};
-</script>
-</body>
-</html>
-```
-
-Access this data in JavaScript:
-
-```
-const System = globalThis[Symbol.for('Yellow-System')];
-console.log("SITENAME=" + System.sitename);
+console.log("Page.title = " + Page.title);
 ```
 
 ## Settings
 
 The following setting can be configured in file `system/extensions/yellow-system.ini`:
 
-`AddToPageDebugMode`: Switch logging off / on. E.g. `0`, `1` 
+`AddToPageDebugMode`: Switch logging off / on. E.g. `0`, `1`
 
 0 = Logging off. 1 = Logging on.
 

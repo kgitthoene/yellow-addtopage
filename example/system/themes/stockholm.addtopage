@@ -1,0 +1,6 @@
+SYSTEM
+PAGE
+EXTENSIONS
+JS js/zepto/zepto.min.js
+JS js/darkmode-js/darkmode-js.min.js
+JS js/startup-darkmode-js.js footer
