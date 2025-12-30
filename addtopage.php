@@ -27,7 +27,7 @@
 # SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #----------
 class YellowAddToPage {
-  const VERSION = "0.3.6";
+  const VERSION = "0.3.9";
   public $yellow;            //access to API
   public $debug = true;
   public $a_file = array();
