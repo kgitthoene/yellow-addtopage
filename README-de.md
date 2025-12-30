@@ -62,9 +62,9 @@ Für CSS und JavaScript sind folgende Argumente möglich, das letzte ist optinal
 
 Die Dateien müssen im Serverordner `media/downloads` platziert werden.
 
-[^1]: Falls nicht die Variable `CoreDownloadLocation` in der Hauptkonfigurationsdatei `system/extensions/yellow-system.ini` geändert wird.
+Falls nicht die Variable `CoreDownloadLocation` in der Hauptkonfigurationsdatei `system/extensions/yellow-system.ini` geändert wird.
 
-​     Siehe: [Yellow Folder Structure](https://datenstrom.se/de/yellow/help/api-for-developers#verzeichnisstruktur)
+Siehe: [Yellow Folder Structure](https://datenstrom.se/de/yellow/help/api-for-developers#verzeichnisstruktur)
 
 ```
 ├── content               = Webseiteninhalt
@@ -227,6 +227,8 @@ Type Dummy Options
 ```
 
 Angenommen das Theme ist `stockholm`: Dann erzeuge die Datei **`stockholm.addtopage`** im Themen-Verzeichnis `system/themes`
+
+Inhalt der Datei `stockholm.addtopage`:
 
 ```
 PAGE - footer

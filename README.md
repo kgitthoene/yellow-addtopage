@@ -62,9 +62,9 @@ For CSS and JavaScript the following arguments are available, but the last argum
 
 The files are placed in `media/downloads`
 
-[^1]: Unless you change `CoreDownloadLocation` in the main configuration file `system/extensions/yellow-system.ini`
+Unless you change `CoreDownloadLocation` in the main configuration file `system/extensions/yellow-system.ini`
 
-​     See: [Yellow Folder Structure](https://datenstrom.se/yellow/help/api-for-developers#folder-structure)
+See: [Yellow Folder Structure](https://datenstrom.se/yellow/help/api-for-developers#folder-structure)
 
 ```
 ├── content               = content files
@@ -227,6 +227,8 @@ Type Dummy Options
 ```
 
 Say your theme is `stockholm`: place **`stockholm.addtopage`** in `system/themes`
+
+Content of `stockholm.addtopage`:
 
 ```
 PAGE - footer
