@@ -8,7 +8,7 @@ Add CSS, JavaScript files or meta data to [Yellow](https://datenstrom.se/yellow/
 
 ## How to install an extension
 
-[Download ZIP file](https://github.com/unknown/main.zip) and copy it file into your `system/extensions` folder. [Learn more about extensions](https://datenstrom.se/yellow/extensions/).
+[Download ZIP file](https://github.com/kgitthoene/yellow-addtopage/archive/refs/heads/main.zip) and copy it file into your `system/extensions` folder. [Learn more about extensions](https://datenstrom.se/yellow/extensions/).
 
 ## Overall Example
 
@@ -106,7 +106,7 @@ If you omit the `footer` option, the file will be added to the page header. Exam
 
 ### (2) Add Addtopage to the page settings
 
-See: [How to change the system / Chapter: Page Settings](https://datenstrom.se/yellow/help/how-to-change-the-system)
+See: [How to change the system / Chapter: Page Settings](https://datenstrom.se/yellow/help/how-to-change-the-system#page-settings)
 
 For CSS and JavaScript the following arguments are available, but the last argument is optional:
 

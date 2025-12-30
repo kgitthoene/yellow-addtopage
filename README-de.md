@@ -23,10 +23,10 @@ Kopiere die zusätzliche JavaScript-Datei in die von dir erzeugten Unterverzeich
 |   └── downloads
 |       └── js
 |           └── darkmode
-|               └── darkmode.js    = file to inject into all pages
+|               └── darkmode.js    = Füge diese Datei auf allen Seiten ein.
 └── system
     └── themes
-        └── stockholm.addtopage    = contains Addtopage instructions
+        └── stockholm.addtopage    = Enthält die Addtopage Anweisungen.
 ```
 
 In `stockholm.addtopage` steht:
@@ -106,7 +106,7 @@ Wird die `footer` Option weggelassen, wird die Datei im HTML-Kopf eingefügt:
 
 ### (2) Füge Addtopage in die Seiten-Einstellungen ein
 
-Siehe: [How to change the system / Chapter: Page Settings](https://datenstrom.se/de/yellow/help/how-to-change-the-system#seiteneinstellungen)
+Siehe: [Wie man das System ändert / Kapitel: Seiteneinstellungen](https://datenstrom.se/de/yellow/help/how-to-change-the-system#seiteneinstellungen)
 
 Für CSS und JavaScript sind die folgenden Argumente anzugeben, die Optionen sind optional.
 
@@ -142,10 +142,10 @@ Die Ordnerstruktur für dieses Beispiel:
 ├── media
     └── downloads
         ├── css
-        │   └── injected-style.css    = 1st file to inject into page
+        │   └── injected-style.css    = Datei, die als erste eingefügt wird.
         └── js
             └── darkmode
-                └── darkmode.js       = 2nd file to inject into page
+                └── darkmode.js       = Datei, die als zweites eingefügt wird.
 ```
 
 ### (3) Alle Seiten: Hinzufügen von CSS- und JavaScript-Dateien
@@ -155,8 +155,8 @@ Erzeuge die Datei `<theme>.addtopage`  im Themen-Verzeichnis `system/themes`
 Angenommen das Thema ist `stockholm`, dann erzeuge die Datei **`stockholm.addtopage`** im Themen-Verzeichnis:
 
 ```
-└── system                        = system files
-    └── themes                    = theme files
+└── system                        = Systemverzeichnis
+    └── themes                    = Themen-Verzeichnis
         └── stockholm.addtopage   = contains Addtopage instructions
 ```
 
@@ -175,13 +175,13 @@ Die Ordnerstruktur für dieses Beispiel:
 ├── media
 │   └── downloads
 │       ├── css
-│       │   └── injected-style.css    = 1st file to inject to page
+│       │   └── injected-style.css    = Datei, die als erste eingefügt wird.
 │       └── js
 │           └── darkmode
-│               └── darkmode.js       = 2nd file to inject to page
+│               └── darkmode.js       = Datei, die als zweites eingefügt wird.
 └── system
     └── themes
-        └── stockholm.addtopage   	  = contains Addtopage instructions
+        └── stockholm.addtopage   	  = Enthält die Addtopage Anweisungen.
 ```
 
 ## Füge Metadata zu Webseiten hinzu
