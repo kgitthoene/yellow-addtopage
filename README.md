@@ -314,7 +314,7 @@ Log file location: `system/extensions/yellow-website.log`
 
 ## Acknowledgements
 
-This extension is inspired by [yellow-gallery](https://github.com/annaesvensson/yellow-gallery) by [Anna Svensson]([https://github.com/annaesvensson). Thank you for the good work.
+This extension is inspired by [yellow-gallery](https://github.com/annaesvensson/yellow-gallery) by [Anna Svensson](https://github.com/annaesvensson). Thank you for the good work.
 
 ## Developer
 

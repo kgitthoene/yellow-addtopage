@@ -314,7 +314,7 @@ Log-Datei-Pfad: `system/extensions/yellow-website.log`
 
 ## Danksagung
 
-Diese Erweiterung ist inspieriert durch [yellow-gallery](https://github.com/annaesvensson/yellow-gallery) by [Anna Svensson]([https://github.com/annaesvensson). Vielen Dank für die gute Arbeit.
+Diese Erweiterung ist inspieriert durch [yellow-gallery](https://github.com/annaesvensson/yellow-gallery) by [Anna Svensson](https://github.com/annaesvensson). Vielen Dank für die gute Arbeit.
 
 ## Entwickler
 
