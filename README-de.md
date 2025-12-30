@@ -8,15 +8,17 @@ Füge CSS- oder JavaScript-Dateien oder Metadaten in [Yellow](https://datenstrom
 
 ## Wie installiere ich die Erweiterung?
 
-[Downloade ZIP-Datei](https://github.com/unknown/main.zip) und kopiere sie in das Verzeichnis `system/extensions` auf dem Server. [Lerne mehr über Erweiterungen](https://datenstrom.se/de/yellow/extensions/).
+[Downloade die ZIP-Datei](https://github.com/unknown/main.zip) und kopiere sie in das Verzeichnis `system/extensions` auf dem Server. [Lerne mehr über Erweiterungen](https://datenstrom.se/de/yellow/extensions/).
 
 ## Gesamtbeispiel
 
-Fügt JavaScript und Metadaten in all deine Weibseiten ein. Erzeuge eine `<theme>.addtopage`  Datei im Themen-Verzeichnis auf dem Server `system/themes`
+Fügt JavaScript und Metadaten in all deine Weibseiten ein. Erzeuge eine `<theme>.addtopage` Datei im Themen-Verzeichnis auf dem Server.
 
-Angenommen das Thema ist `stockholm`, dann schreibe die Datei **`stockholm.addtopage`** in das Themen-Verzeichnis.
+Angenommen das Thema ist `stockholm`, dann schreibe die Datei **`stockholm.addtopage`** in das Themen-Verzeichnis `system/themes`
 
 Kopiere die zusätzliche JavaScript-Datei in die von dir erzeugten Unterverzeichnisse im Downloadverzeichnis `media/downloads`
+
+Übersicht über die Order- / Dateistruktur:
 
 ```
 ├── media

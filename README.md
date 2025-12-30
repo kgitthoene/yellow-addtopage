@@ -12,11 +12,13 @@ Add CSS, JavaScript files or meta data to [Yellow](https://datenstrom.se/yellow/
 
 ## Overall Example
 
-Inject files and meta data to all of your pages. Place a file `<theme>.addtopage`  in the themes directory `system/themes`
+Inject files or meta data to your pages. Place the file `<theme>.addtopage`  in the themes directory.
 
-Say your theme is `stockholm`, then place a file **`stockholm.addtopage`** in the themes directory.
+Say your theme is `stockholm`, then place the file **`stockholm.addtopage`** in the themes directory `system/themes`
 
-Place additional JavaScript and CSS files into the downloads folder `media/downloads`
+Place additional JavaScript and/or CSS files into the downloads folder `media/downloads`
+
+Example folder / file structure:
 
 ```
 ├── media
@@ -29,14 +31,14 @@ Place additional JavaScript and CSS files into the downloads folder `media/downl
         └── stockholm.addtopage    = contains Addtopage instructions
 ```
 
-If `stockholm.addtopage` is:
+Content of `stockholm.addtopage` is:
 
 ```
 PAGE - footer
-JS js/darkmode/darkmode.js footer
+JS js/darkmode/darkmode.js
 ```
 
-Then the page meta data is set on all pages (JavaScript code), and the file  `js/darkmode/darkmode.js` is injected to all pages.
+This places the page meta data (JavaScript code) and the file  `js/darkmode/darkmode.js` inside all of your Yellow pages.
 
 For details see the next sections.
 
@@ -139,7 +141,7 @@ This is an example page setting with multiple file or meta data injection.
 Folder structure for this example:
 
 ```
-├── media
+└── media
     └── downloads
         ├── css
         │   └── injected-style.css    = 1st file to inject into page
