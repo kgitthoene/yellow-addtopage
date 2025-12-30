@@ -198,7 +198,7 @@ Method **(1)** and **(2)** affects a single page. Method **(3)** affects all pag
 
 `Type` = Meta data type: `PAGE`, `SYSTEM`
 
-`Dummy` = File file argument: `-`    Must use this, if you set options. No options, no dummy needed.
+`Dummy` = Dummy argument: `-`    Must use this, if you set options. No options, no dummy needed.
 
 `Options` = Multiple, single or none option key words: `footer`, `debug`  (separated by `:`    e.g.   `footer:debug`  )
 

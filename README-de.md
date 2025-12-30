@@ -198,7 +198,7 @@ Methode **(1)** und **(2)** machen dies nur auf einer Webseite. Methode **(3)** 
 
 `Type` = Metadaten-Typ: `PAGE`, `SYSTEM`
 
-`Dummy` = Unbenutztes Datei-Argument: `-`    Dies muss gesetzt sein, wenn Optionen genutzt werden. Ohne Optionen wird es nicht benötigt.
+`Dummy` = Platzhalter Argument: `-`    Dies muss gesetzt sein, wenn Optionen genutzt werden. Ohne Optionen wird es nicht benötigt.
 
 `Options` = Optionale Optionen: `footer`, `debug`  (  mehrere getrennt durch `:`    Bsp.   `footer:debug`  )
 
