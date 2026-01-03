@@ -196,6 +196,3 @@ Danke für die gute Arbeit.
 ## Entwickler
 
 [Kai Thoene](https://github.com/kgitthoene)
-
-
-
