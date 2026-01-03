@@ -29,8 +29,8 @@ Siehe: [JavaScript anpassen](https://datenstrom.se/de/yellow/help/how-to-customi
 
 So weit, so gut.
 Es sei denn man möchte dieses Script nicht in alle Seiten einfügen.
-Oder man hat mehrere unterschiedliche Script-Dateien mit sprechenden Namen.
-Dasselbe gilt für CSS-Dateine.
+Oder man hat mehrere unterschiedliche Script-Dateien mit sprechenden Namen, die man wieder erkennen möchte.
+Dasselbe gilt für CSS-Dateien.
 
 Diese Erweiterung erlaubt es JS- und CSS-Dateinen speziell in bestimmte Seiten einzufügen.
 Oder eben auch in alle.
@@ -70,7 +70,7 @@ Daher kann man leider keine Verzeichnisse oder Dateinamen verwenden, die Leerzei
 | --- | --- |
 | `JS` | Füge eine JavaScript-Datei ein. |
 | `CSS` | Füge eine CSS-Datei ein.. |
-| `PAGE` | Füge Metadaten über die aktuelle Seite JS-Code ein. |
+| `PAGE` | Füge Metadaten über die aktuelle Seite als JS-Code ein. |
 | `SYSTEM` | Füge Metadaten über das System als JS-Code ein. |
 | `EXTENSIONS` | Füge Metadaten über die installierten Erweiterungen als JS-Code ein. |
 
