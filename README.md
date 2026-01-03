@@ -1,4 +1,4 @@
-<p align="right"><a href="README.md">English</a> &nbsp; <a href="README-de.md">Deutsch</a></p>
+<p align="right"><a href="README.md">English</a> &nbsp; <a href="README-de.md">German</a></p>
 
 # Addtopage
 
@@ -19,14 +19,17 @@ $ wget https://github.com/kgitthoene/yellow-addtopage/archive/refs/heads/main.zi
 
 ## Why this extension?
 
-[Yellows](https://datenstrom.se/yellow/) slogan is: „Use technology with fewer features.“
+[Yellows](https://datenstrom.se/) slogan is: „Use technology with fewer features.“
 This is great – and I love it.
 But what, if you want to add a touch salt and pepper, to get it a little bit spicier? This is called Yellow extensions … 🍎
 
 The Yellow way to add [JavaScript](https://en.wikipedia.org/wiki/JavaScript) to its pages is to create a `<theme>.js` file inside the themes directory `system/themes`
 See: [Customising JavaScript](https://datenstrom.se/yellow/help/how-to-customise-a-theme#customising-javascript)
 
-So far, so good. Until you don't want this script on all pages. Or you have multiple scripts with dedicated, meaningful, names. The same applies to CSS files.
+So far, so good.
+Until you don't want this script on all pages.
+Or you have multiple scripts with dedicated, meaningful, names.
+The same applies to CSS files.
 
 This extension allows JS and CSS files to be specifically loaded into specific pages.
 Or just in all of them.
@@ -91,7 +94,6 @@ Don't set it, or if you want to use `Options` set it to `-`
 | `footer` | Inject file or meta data in the footer of the HTML output. If you omit `footer`, the data is injected in the header of the HTML output. |
 | `inline` | This is used for meta data. If set with a file, the files content is read and embedded in the HTML output. For meta data you may omit this option. |
 | `debug` | Output some debug information as comments to the HTML output. |
-
 
 ### Where to place these instructions?
 
@@ -192,7 +194,8 @@ Log file location: `system/extensions/yellow-website.log`
 
 ## Acknowledgements
 
-This extension is inspired by [yellow-gallery](https://github.com/annaesvensson/yellow-gallery) by [Anna Svensson](https://github.com/annaesvensson). Thank you for the good work.
+This extension is inspired by [yellow-gallery](https://github.com/annaesvensson/yellow-gallery) by [Anna Svensson](https://github.com/annaesvensson).
+Thank you for the good work.
 
 ## Developer
 
