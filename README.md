@@ -194,7 +194,8 @@ Log file location: `system/extensions/yellow-website.log`
 
 ## Acknowledgements
 
-This extension is inspired by [yellow-gallery](https://github.com/annaesvensson/yellow-gallery) by [Anna Svensson](https://github.com/annaesvensson).
+This extension is inspired by [yellow-gallery](https://github.com/annaesvensson/yellow-gallery) by [Anna Svensson](https://github.com/annaesvensson).\
+The example uses: [Darkmode.Js](https://darkmodejs.learn.uno/) and [zepto.js](https://zeptojs.com/).\
 Thank you for the good work.
 
 ## Developer

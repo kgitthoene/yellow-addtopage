@@ -189,7 +189,8 @@ Logging-Datei: `system/extensions/yellow-website.log`
 
 ## Danksagung
 
-Diese Erweiterung wurde durch [yellow-gallery](https://github.com/annaesvensson/yellow-gallery) von [Anna Svensson](https://github.com/annaesvensson) inspiriert.
+Diese Erweiterung wurde durch [yellow-gallery](https://github.com/annaesvensson/yellow-gallery) von [Anna Svensson](https://github.com/annaesvensson) inspiriert.\
+Das Beispiel benutzt: [Darkmode.Js](https://darkmodejs.learn.uno/) und [zepto.js](https://zeptojs.com/).\
 Danke für die gute Arbeit.
 
 ## Entwickler
