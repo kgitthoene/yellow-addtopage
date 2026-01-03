@@ -4,7 +4,7 @@
 
 Add CSS, JavaScript files or meta data to [Yellow](https://datenstrom.se/yellow/) web pages.
 
-<p align="center"><img src="addtopage-machine.png" alt="Yellow-Addtopage"></p>
+<p align="center"><img src="ILLUSTRATION-addtopage.png" alt="Yellow-Addtopage"></p>
 
 ## How to install an extension
 
@@ -138,7 +138,7 @@ CSS my-important-style.css
 JS my-mighty-script.js footer
 ```
 
-This adds my-important-style.css to the page header and my-mighty-script.js to the page footer **<ins>on ervery page Yellow renders!</ins>**
+This adds `my-important-style.css` to the page header and `my-mighty-script.js` to the page footer **<ins>on ervery page Yellow renders!</ins>**
 
 ![#f03c15](https://placehold.co/16x10/f03c15/f03c15.png) **Remember!** Page and page settings instructions affect only a specific page. Theme instructions affect the whole site.
 

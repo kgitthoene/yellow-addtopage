@@ -1,6 +1,6 @@
-SYSTEM
-PAGE
-EXTENSIONS
+SYSTEM - debug
+PAGE - debug
+EXTENSIONS - debug
 JS js/zepto/zepto.min.js
 JS js/darkmode-js/darkmode-js.min.js
 JS js/startup-darkmode-js.js footer
