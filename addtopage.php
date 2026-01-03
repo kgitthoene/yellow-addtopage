@@ -99,7 +99,6 @@ class YellowAddToPage {
                     $key = trim($matches[1]);
                     $value = trim($matches[2]);
                     if (strtolower($key) == 'extension') {
-                        # New extension information starts
                         $extn = $value;
                         $data[$extn] = [];
                         $data[$extn][$key] = $value;
@@ -119,7 +118,6 @@ class YellowAddToPage {
             case "CSS":
             case "JS":
                 if ($bIsInline) {
-                    # Read content of file.
                     $content = file_get_contents($fileLoc);
                     $content .= ((mb_substr($content, -1) == "\n") ? "" : "\n");
                     switch ($type) {
@@ -268,8 +266,6 @@ class YellowAddToPage {
                                 break;
                             }
                         }
-                        #----------
-                        #
                         if ($bFileExitsInList) {
                             $this->yellow->toolbox->log("warn", "File already defined! FILE='{$file}' ORIGIN='{$origin}' | FROM-ORIGIN='{$sFileOrigin}'");
                         } else {
@@ -295,7 +291,6 @@ class YellowAddToPage {
                 case "PAGE":
                 case "SYSTEM":
                 case "EXTENSIONS":
-                    # Handle inserting page / system data.
                     array_push($this->aInstructions, array("TYPE" => $type, "FILE" => $file, "DEBUG" => $bIsDebug, "INLINE" => true, "FOOTER" => $bIsFooter, "ORIGIN" => $origin, "PRINTED" => false));
                     break;
             }
@@ -327,12 +322,7 @@ class YellowAddToPage {
     // Handle page extra data
     public function onParsePageExtra($page, $name) {
         $output = null;
-        #----------
-        # Parse meta data / i.e. page header.
         if (!$this->bIsMetaDataIsParsed) {
-            #
-            #----------
-            # Lookup for addtopage theme settings. In file: system/themes/<THEME>.addtopage
             $cwd = getcwd();
             $urlfn = $this->__getThemeFileURL();
             $fn = $this->__join(array($cwd, $urlfn));
@@ -342,10 +332,6 @@ class YellowAddToPage {
                     $this->__parseInstruction("THEME", true, $line, $this->aInstructions, $this->aHeaderThemeErrors);
                 }
             }
-            #----------
-            #
-            #----------
-            # Parse page meta data.
             foreach ($page->metaData as $key => $text) {
                 $key = strtolower((string) $key);
                 $text = (string) $text;
@@ -354,12 +340,8 @@ class YellowAddToPage {
                     break;
                 }
             }
-            #----------
-            #
             $this->bIsMetaDataIsParsed = true;
         }
-        #----------
-        # Inject files.
         if (!empty($this->aInstructions)) {
             foreach ($this->aInstructions as $item) {
                 $type = "";
@@ -402,5 +384,4 @@ class YellowAddToPage {
         }
         return $output;
     }
-
 }  # class YellowAddToPage
