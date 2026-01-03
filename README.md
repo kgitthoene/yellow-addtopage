@@ -146,7 +146,7 @@ This adds `my-important-style.css` to the page header and `my-mighty-script.js` 
 
 If you add `[addtopage PAGE]` to your page, the current pages meta data is added to the page header.
 
-Resulting HTML code:
+Resulting HTML code (example!):
 
 
 ```
