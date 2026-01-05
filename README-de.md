@@ -13,8 +13,8 @@ Füge CSS- oder JavaScript-Dateien oder Metadaten in [Yellow](https://datenstrom
 Beispielhafte Installation:
 
 ```
-$ cd system/extensions
-$ wget https://github.com/kgitthoene/yellow-addtopage/archive/refs/heads/main.zip -O yellow-addtopage-main.zip
+cd system/extensions
+wget https://github.com/kgitthoene/yellow-addtopage/archive/refs/heads/main.zip -O yellow-addtopage-main.zip
 ```
 
 ## Warum es diese Erweiterung gibt

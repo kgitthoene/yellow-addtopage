@@ -13,8 +13,8 @@ Add CSS, JavaScript files or meta data to [Yellow](https://datenstrom.se/yellow/
 Sample installation instructions:
 
 ```
-$ cd system/extensions
-$ wget https://github.com/kgitthoene/yellow-addtopage/archive/refs/heads/main.zip -O yellow-addtopage-main.zip
+cd system/extensions
+wget https://github.com/kgitthoene/yellow-addtopage/archive/refs/heads/main.zip -O yellow-addtopage-main.zip
 ```
 
 ## Why this extension?
